@@ -32,7 +32,15 @@ function setParam(name, value) {
 	}
 	s[name] = value;
 	for (const [i, [k, v]] of Object.entries(Object.entries(s))) {
-		np[i] = k + '=' + v;
+		switch (true) {
+		case typeof v === 'undefined':
+		case v === null:
+		case v.toString() === '':
+			break;
+		default:
+			np[i] = k + '=' + v;
+			break;
+		}
 	}
 	np = np.filter(function (el) {
 		return el;
