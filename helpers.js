@@ -1,6 +1,5 @@
 /**
  * Returns URL query parameter value by name
- 
  * @param {string} name
  * @returns {getParam.params|params}
  */
