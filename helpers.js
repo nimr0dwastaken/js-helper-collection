@@ -15,7 +15,6 @@ function getParam(name) {
 
 /**
  * Set URL query parameter: name=value - NULL to unset parameter
- * 
  * @param {mixed} name
  * @param {mixed} value
  * @returns {void}
