@@ -23,9 +23,13 @@ console.log(x);
  * 
  * The next two $.each functions produce the same output.
  * Instead of using newline \n\ and '++', wrap output in backticks `` and variables / functions in ${}
+ * 
+ * Note: Using 1-line if / else as previously described
  */
+
 let values = [1, 2, 3];
 
+// Regular example
 $.each(values, (index, value) => {
     var end = value === 3;
     var print = (!end ? value : 'end');
@@ -36,7 +40,7 @@ $.each(values, (index, value) => {
     ');
 });
 
-// 1-line if / else used as previously described
+// Using template literals
 $.each(values, (index, value) => {
     console.log(`
         <div>
@@ -45,7 +49,7 @@ $.each(values, (index, value) => {
     `);
 });
 
-// Another example
+// Another example using template literals
 let object = {
     title: 'Some title',
     body: 'Some body text'
