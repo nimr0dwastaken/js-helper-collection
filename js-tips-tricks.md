@@ -1,3 +1,5 @@
+# JS tips & tricks
+
 # 1-line Quick trick
 if / else statements and assignments
 
@@ -66,4 +68,11 @@ console.log(`
         <p class="body">${object.body}</p>
     </div>
 `);
+```
+
+# jQuery doc ready shorthand
+```
+$(() => {
+    // Do stuff
+});
 ```
