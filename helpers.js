@@ -1,7 +1,7 @@
 /**
  * Returns URL query parameter value by name
  * @param {string} name
- * @returns {getParam.params|params}
+ * @returns {string}
  */
 function getParam(name) {
 	var url = new URL(window.location.href), p = url.search, parts = {}, params = {};
