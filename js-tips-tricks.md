@@ -4,7 +4,7 @@
 if / else statements and assignments
 
 **Normal multi-line**
-```
+```javascript
 let x;
 
 if(1 === 1){
@@ -16,7 +16,7 @@ console.log(x); // 'something'
 ```
 
 **1-line, same as 5 line above**
-```
+```javascript
 let x = (1 === 1 ? 'something' : 'something else');
 console.log(x); // 'something'
 ```
@@ -32,7 +32,7 @@ Note: Using 1-line if / else as previously described
 
 
 **One way of normal outputting a loop (each)**
-```
+```javascript
 let values = [1, 2, 3];
 
 $.each(values, (index, value) => {
@@ -47,7 +47,7 @@ $.each(values, (index, value) => {
 ```
 
 **Using template literals**
-```
+```javascript
 $.each(values, (index, value) => {
     console.log(`
         <div>
@@ -57,7 +57,7 @@ $.each(values, (index, value) => {
 });
 ```
 **Using template literals**
-```
+```javascript
 let object = {
     title: 'Some title',
     body: 'Some body text'
@@ -71,7 +71,7 @@ console.log(`
 ```
 
 # jQuery doc ready shorthand
-```
+```javascript
 $(() => {
     // Do stuff
 });
