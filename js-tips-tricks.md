@@ -1,6 +1,9 @@
 # JS tips & tricks
-
-# 1-line Quick trick
+Just a few short tricks to shorten JS
+ 
+ 
+ 
+ ## 1-line Quick trick
 if / else statements and assignments
 
 **Normal multi-line**
@@ -20,12 +23,15 @@ console.log(x); // 'something'
 let x = (1 === 1 ? 'something' : 'something else');
 console.log(x); // 'something'
 ```
-
-# JS template literals
+ 
+ 
+ 
+ 
+## JS template literals
 
 The next two $.each functions produce the same output.
 
-Instead of using newline \n\ and '++', wrap output in backticks \`\` and variables / functions in ${}
+Instead of using newline \n\ and '++', wrap output in backticks \`\`, and variables / functions in ${}
 
 
 Note: Using 1-line if / else as previously described
@@ -69,10 +75,27 @@ console.log(`
     </div>
 `);
 ```
-
-# jQuery doc ready shorthand
+ 
+ 
+ 
+## jQuery doc ready shorthand
 ```javascript
 $(() => {
     // Do stuff
 });
+```
+ 
+ 
+ 
+## Short form conditionals
+
+**Normal example**
+```javascript
+if (pageFound) {
+    displayPage();
+}
+```
+**Short form**
+```javascript
+pageFound && displayPage()
 ```
