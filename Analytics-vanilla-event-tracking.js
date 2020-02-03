@@ -10,14 +10,9 @@
             },
             {
                 category: 'Kontakt',
-                selector: '[href="tel:+4571993159"]',
+                selector: '[href="tel:12345678"]',
                 label: 'Tlf click',
-            },
-            {
-                category: 'Kontakt',
-                selector: '[href="mailto:info@allaboutyou.dk"]',
-                label: 'Mail click',
-            },
+            }
         ];
 
 
