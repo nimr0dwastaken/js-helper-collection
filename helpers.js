@@ -104,3 +104,45 @@ function randomInt(min, max) {
 function windowReload(timeout = 0) {
 	setTimeout(window.location.reload.bind(window.location), timeout);
 }
+
+// Prettify JSON
+// CSS below
+function jsonPretty(json) {
+    json = JSON.stringify(json, null, 4);
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'json-numeric';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'json-key';
+            } else {
+                cls = 'json-string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'json-bool';
+        } else if (/null/.test(match)) {
+            cls = 'json-null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+}
+/**
+ * .json-string { color: #b21111; }
+ * .json-key { color: #aa00b7; }
+ * .json-numeric { color: #116644; }
+ * .json-null,
+ * .json-bool { color: #221199; }
+ * span[class*="json-"]{font-weight:bold;}
+ * pre {
+ *  white-space: pre-wrap;
+ *  background: #fafafa;
+ *  padding: 20px;
+ *  font-family: monospace !important;
+ *  overflow: hidden;
+ *  border: 1px solid #cecece;
+ *  border-radius: 5px;
+ *  width:100%;
+ *  color: #474747;
+ * }
+ */
+
