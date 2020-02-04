@@ -106,6 +106,7 @@ function windowReload(timeout = 0) {
 }
 
 // Prettify JSON
+// Shamelessly stolen from https://stackoverflow.com/a/7220510 and modded slightly
 // CSS below
 function jsonPretty(json) {
     json = JSON.stringify(json, null, 4);
