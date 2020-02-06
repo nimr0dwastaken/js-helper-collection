@@ -147,3 +147,104 @@ function jsonPretty(json) {
  * }
  */
 
+
+/**
+ * Returns time since / till certain datetime
+ * @param string timestamp
+ * @return string
+ */
+
+function timeSince(timestamp) {
+    var target = new Date(timestamp);
+    if (target == 'Invalid Date') {
+        return false;
+    }
+    var sub = 0, now = new Date(), since, years, months, days, hours, minutes, seconds, ret;
+    if (target > now) {
+        var diff = target - now;
+        var overdue = false;
+    } else {
+        var diff = now - target;
+        var overdue = true;
+    }
+
+    years = Math.floor(diff / 1000 / 60 / 60 / 24 / 365);
+    sub = (years * 1000 * 60 * 60 * 24 * 365)
+    diff = diff - sub;
+
+    months = Math.floor(diff / 1000 / 60 / 60 / 24 / 30.5);
+    sub = (months * 1000 * 60 * 60 * 24 * 30.5)
+    diff = diff - sub;
+
+    days = Math.floor(diff / 1000 / 60 / 60 / 24);
+    sub = (days * 1000 * 60 * 60 * 24)
+    diff = diff - sub;
+
+    hours = Math.floor(diff / 1000 / 60 / 60);
+    sub = (hours * 1000 * 60 * 60)
+    diff = diff - sub;
+
+    minutes = Math.floor(diff / 1000 / 60);
+    sub = (minutes * 1000 * 60)
+    diff = diff - sub;
+
+    seconds = Math.floor(diff / 1000);
+    sub = (seconds * 1000)
+    diff = diff - sub;
+
+    since = {
+        years: (years > 0) ? years + ' år' : "",
+        months: (months > 1) ? months + ' måneder' : $months = months + ' måned',
+        days: (days > 1) ? days + ' dage' : days + ' dag',
+        hours: (hours > 1) ? hours + ' timer' : hours + ' time',
+        minutes: (minutes > 1) ? minutes + ' minutter' : minutes + ' minut',
+        seconds: (seconds > 1) ? seconds + ' sekunder' : seconds + ' sekund',
+        miliseconds: diff
+    };
+
+    if (years !== 0) {
+        // More than a year
+        ret = since.years + (since.months != 0 ? '&nbsp;' + since.months : '');
+    } else if (months > 0 && years == 0) {
+        // More than a month, less than a year
+        ret = since.months + ' ' + since.days;
+    } else if (days > 0 && months == 0 && years == 0) {
+        // More than a day, less than a month
+        ret = since.days;
+    } else if (hours > 0 && days == 0 && months == 0 && years == 0) {
+        // More than an hour, less than a day
+        ret = since.hours;
+    } else if (minutes > 0 && hours == 0 && days == 0 && months == 0 && years == 0) {
+        // More than a minute, less than an hour
+        ret = since.minutes;
+    } else if (seconds && minutes == 0 && hours == 0 && days == 0 && months == 0 && years == 0) {
+        // More than a second, less than a minute
+        ret = since.seconds;
+    }
+
+
+    if (since.days < 10) {
+        since.days = '0' + since.days;
+    }
+    if (since.months < 10) {
+        since.months = '0' + since.months;
+    }
+    if (since.hours < 10) {
+        since.hours = '0' + since.hours;
+    }
+    if (since.minutes < 10) {
+        since.minutes = '0' + since.minutes;
+    }
+    if (since.seconds < 10) {
+        since.seconds = '0' + since.seconds;
+    }
+
+    if (overdue) {
+        ret = ret + ' siden';
+    } else {
+        ret = 'om ' + ret;
+    }
+
+    return ret;
+}
+
