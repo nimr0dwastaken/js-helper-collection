@@ -3,7 +3,7 @@ Just a few short tricks to shorten JS
  
  
  
- ## 1-line Quick trick
+ ## Conditional ternary operator
 if / else statements and assignments
 
 **Normal multi-line**
