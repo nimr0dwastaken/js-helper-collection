@@ -1,3 +1,7 @@
+// Dirty fix for floating point calculations
+let float = 0.1 + 0.2 // 0.30000000000000004
+Math.round(float * 1e10) / 1e10 // 0.3
+
 /**
  * Returns URL query parameter value by name
  * @param {string} name
@@ -128,6 +132,7 @@ function jsonPretty(json) {
     });
 }
 /**
+ * CSS
  * .json-string { color: #b21111; }
  * .json-key { color: #aa00b7; }
  * .json-numeric { color: #116644; }
