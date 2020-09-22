@@ -1,3 +1,17 @@
+// Quick date reformat
+// Input: Y-m-d H:i:s
+//
+// Example: 2020-09-21 10:45:03
+formatDate(date){
+  const [year,month,day] = date.split(' ')[0].split('-')
+  const [hour,minute,second] = date.split(' ')[1].split(':')
+
+  return `${day}-${month}-${year} kl. ${hour}:${minute}:${second}`
+}
+// Output: 21-09-2020 kl. 10:45:03
+
+
+
 // Dirty fix for floating point calculations
 let float = 0.1 + 0.2 // 0.30000000000000004
 Math.round(float * 1e10) / 1e10 // 0.3
